@@ -11,6 +11,7 @@ export const RESET = 'RESET'
  * */
 
 export function increment() {
+  debugger
   return {
     type:INCREMENT
   }

@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux'
-import count from '../router/Counter/reducers/reducers'
-
-const rootReducers = combineReducers({
-  /* 注意隐式传递参数 countReducer:countReducer(state.count, action) */
-  count
-})
+/* import * as reducers 得到一个以它们的名字作为key的Object */
+import * as reducers from './reducers'
+/* 顶级Reducer合并 */
+console.log(reducers)
+const rootReducers = combineReducers(reducers)
 
 export default rootReducers

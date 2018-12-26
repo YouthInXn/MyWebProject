@@ -23,6 +23,20 @@ module.exports = {
         test:/\.js$/,
         use:['babel-loader?cacheDirectory=true'],
         include:path.resolve(__dirname, 'src')
+      },
+      {
+        test:/\.css$/,
+        use:['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+          loader: 'url-loader',
+          // 小于等于8K的图片会被转成base64编码，直接插入HTML中
+          options: {
+            limit: 8192
+          }
+        }]
       }
     ]
   },
@@ -32,7 +46,7 @@ module.exports = {
   devServer: {
     contentBase:path.join(__dirname, './dist'),
     // 端口
-    port:3000,
+    port:3001,
     // 都做gzip压缩
     compress:true,
     // 模块热加载

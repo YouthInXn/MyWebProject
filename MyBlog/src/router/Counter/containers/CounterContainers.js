@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux'
 import { increment, decrement, reset } from '../actions'
 import Counter from '../components/Counter'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ counter }) => {
   return {
-    counter:state.counter
+    counter:counter.count
   }
 }
 
