@@ -3,18 +3,25 @@ const path  = require('path')
 /* global __dirname */
 const WebpackHtmlPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+/* 分离第三方库 */
+const vendors = ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
 
 module.exports = {
   // webpack 入口
-  entry:[
-    'react-hot-loader/patch',
-    path.resolve(__dirname, 'src/index.js')
-  ],
+  entry: {
+    app:[
+      'babel-polyfill',
+      path.resolve(__dirname, 'src/index.js')
+    ],
+    vendor:vendors
+  },
   // webpack 出口
   output: {
     path:path.resolve(__dirname, 'dist'),
-    filename: '[name].min.js',
-    chunkFilename: 'main[chunkhash].min.js'
+    filename: '[name].[chunkhash].js',
+    /* 非入口chunk包的名称,chunkhash解决缓存问题，可更细节的优化，减少第三方依赖的构建次数 */
+    chunkFilename: '[name].[chunkhash].min.js',
+    publicPath: '/'
   },
   // webpack loader
   module: {
@@ -23,10 +30,6 @@ module.exports = {
         test:/\.js$/,
         use:['babel-loader?cacheDirectory=true'],
         include:path.resolve(__dirname, 'src')
-      },
-      {
-        test:/\.css$/,
-        use:['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -40,24 +43,7 @@ module.exports = {
       }
     ]
   },
-  // 添加开发工具SourceMap，源文件映射，协助开发
-  devtool: 'inline-source-map',
-  // webpack-dev-server 文件服务器配置(使用CLI方式配置)
-  devServer: {
-    contentBase:path.join(__dirname, './dist'),
-    // 端口
-    port:3001,
-    // 都做gzip压缩
-    compress:true,
-    // 模块热加载
-    hot:true,
-    // 默认启动打开浏览器
-    open:true,
-    // 打印进度
-    // progress:true,
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     // 配置打包的html模板文件
     new WebpackHtmlPlugin({
       title:'YouthInXian的个人网站',
@@ -74,6 +60,15 @@ module.exports = {
         // 去掉空格
         collapseWhitespace: true,
       }
-    })
+    }),
+    /* 分离第三方库 */
+    new webpack.optimize.CommonsChunkPlugin({
+      name:'vendor'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime'
+    }),
+    /* 减少第三方库的加载,保证第三方库的hash在代码未改变时不变 */
+    new webpack.HashedModuleIdsPlugin()
   ]
 }
