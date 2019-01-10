@@ -2,9 +2,9 @@ const path  = require('path')
 /* 配置eslint不能识别的全局变量 */
 /* global __dirname */
 const WebpackHtmlPlugin = require('html-webpack-plugin')
+const projectConfig = require('./myBlog.config')
 const webpack = require('webpack')
-/* 分离第三方库 */
-const vendors = ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   // webpack 入口
@@ -13,7 +13,7 @@ module.exports = {
       'babel-polyfill',
       path.resolve(__dirname, 'src/index.js')
     ],
-    vendor:vendors
+    vendor:projectConfig.vendors
   },
   // webpack 出口
   output: {
@@ -27,9 +27,9 @@ module.exports = {
   module: {
     rules:[
       {
-        test:/\.js$/,
-        use:['babel-loader?cacheDirectory=true'],
-        include:path.resolve(__dirname, 'src')
+        test:/\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use:['babel-loader?cacheDirectory=true']
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -46,9 +46,9 @@ module.exports = {
   plugins: [
     // 配置打包的html模板文件
     new WebpackHtmlPlugin({
-      title:'YouthInXian的个人网站',
+      title:projectConfig.title,
       // 图标
-      favicon:path.join(__dirname, 'public/favicon.jpg'),
+      favicon:projectConfig.favicon,
       // 使用该模板
       template:path.join(__dirname, 'src/index.html'),
       // 打包到dist下的文件名称
@@ -63,12 +63,18 @@ module.exports = {
     }),
     /* 分离第三方库 */
     new webpack.optimize.CommonsChunkPlugin({
-      name:'vendor'
+      name:['vendor', 'runtime'],
+      minChunks: Infinity,
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'runtime'
+    /* 减少第三方库的加载,保证第三方库的hash在修改代码未改变时不变 */
+    new webpack.HashedModuleIdsPlugin(),
+    /* 压缩优化 */
+    new UglifyJSPlugin({
+      cache: true
     }),
-    /* 减少第三方库的加载,保证第三方库的hash在代码未改变时不变 */
-    new webpack.HashedModuleIdsPlugin()
+    /* 指定lib中引用哪些内容 */
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
   ]
 }

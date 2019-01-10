@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav } from '../Nav/Nav'
+import Nav from '../Nav/Nav'
 import createRoutes from '../../router/router'
 
 export default class App extends React.Component {

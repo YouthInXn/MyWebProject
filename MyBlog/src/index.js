@@ -3,7 +3,6 @@ import 'babel-polyfill'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import store from './redux/store'
 import App from './components/App/APP'
@@ -24,13 +23,11 @@ if (module.hot) {
 function renderWithHMR (RootNode) {
   /* Provider组件将store传递给所有的容器组件 */
   ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
-        <Router>
-          <RootNode />
-        </Router>
-      </Provider>
-    </AppContainer>,
+    <Provider store={store}>
+      <Router>
+        <RootNode />
+      </Router>
+    </Provider>,
     document.getElementById('myBlog')
   )
 }
