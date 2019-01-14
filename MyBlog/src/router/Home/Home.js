@@ -1,4 +1,5 @@
 import React from 'react'
+import { Divider } from '@material-ui/core'
 import './home.css'
 
 export default class Home extends React.Component {

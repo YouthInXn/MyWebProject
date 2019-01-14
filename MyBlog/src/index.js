@@ -5,18 +5,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import App from './components/App/APP'
+import App from './router/App'
 import { BrowserRouter as Router } from 'react-router-dom'
+
 
 /* 初始化 */
 renderWithHMR(App)
 
 /* 热加载配置 */
 if (module.hot) {
-  module.hot.accept('./components/App/APP.js', function () {
+  module.hot.accept('./router/App.js', function () {
     /* 检测到热加载重新渲染 */
-    const nextApp = require('./components/App/APP').default
-    renderWithHMR(nextApp)
+    const NextApp = require('./router/App').default
+    renderWithHMR(NextApp)
   })
 }
 /* 入口 */

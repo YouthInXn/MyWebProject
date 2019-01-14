@@ -25,6 +25,8 @@ module.exports = merge(commonConfig, {
     /* 在还未开发服务端情况下，所有404被代替为index.html */
     historyApiFallback:true,
     contentBase:path.join(__dirname, './dist'),
+    /* 支持手机访问 */
+    host:'0.0.0.0',
     // 端口
     port:3001,
     // 都做gzip压缩

@@ -21,7 +21,6 @@ module.exports = {
     filename: '[name].[chunkhash].js',
     /* 非入口chunk包的名称,chunkhash解决缓存问题，可更细节的优化，减少第三方依赖的构建次数 */
     chunkFilename: '[name].[chunkhash].min.js',
-    publicPath: '/'
   },
   // webpack loader
   module: {
@@ -29,7 +28,38 @@ module.exports = {
       {
         test:/\.(js|jsx)$/,
         exclude: /node_modules/,
-        use:['babel-loader?cacheDirectory=true']
+        use:[
+          {
+            loader:'babel-loader',
+            options:{
+              cacheDirectory: true,
+              presets: [
+                'es2015',
+                'react',
+                'stage-0'
+              ],
+              plugins: [
+                'transform-runtime',
+                'babel-plugin-syntax-dynamic-import',
+                [
+                  'import',
+                  [
+                    {
+                      libraryName:'@material-ui/core',
+                      libraryDirectory:'./',
+                      camel2DashComponentName: false
+                    },
+                    {
+                      libraryName:'@material-ui/icons',
+                      libraryDirectory:'./',
+                      camel2DashComponentName: false
+                    }
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpg|gif)$/,

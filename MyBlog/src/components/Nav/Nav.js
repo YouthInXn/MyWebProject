@@ -1,22 +1,17 @@
 import React from 'react'
-import Menu from '@material-ui/icons/Menu'
-import Home from '@material-ui/icons/Home'
-import ImportContacts from '@material-ui/icons/ImportContacts'
-import LibraryBooks from '@material-ui/icons/LibraryBooks'
+import {
+  Menu, Home,
+  ImportContacts,LibraryBooks
+} from '@material-ui/icons'
+import {
+  Grow,Fab,MenuList,
+  MenuItem,Popper,ClickAwayListener,
+  Paper,ListItemIcon,ListItemText,
+  ListItemAvatar,Avatar
+} from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import projectConfig from '../../../myBlog.config'
-
-import Grow from '@material-ui/core/Grow'
-import Fab from '@material-ui/core/Fab'
-import MenuList from '@material-ui/core/MenuList'
-import MenuItem from '@material-ui/core/MenuItem'
-import Popper from '@material-ui/core/Popper'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import Paper from '@material-ui/core/Paper'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-import Avatar from '@material-ui/core/Avatar'
+import { Link } from 'react-router-dom'
 /* 类似IndexRoute,不受路由改变影响，一直显示 */
 
 const navStyle = {
@@ -24,6 +19,9 @@ const navStyle = {
   top:'20px',
   left:'60px'
 }
+// const linkStyle = {
+//   textDecoration:'none'
+// }
 
 const styles = theme => ({
   root: {
@@ -33,8 +31,8 @@ const styles = theme => ({
     marginRight: theme.spacing.unit * 2,
   },
   avatar:{
-    width:25,
-    height:25,
+    width:27,
+    height:27,
     marginRight: 15
   }
 })
@@ -70,24 +68,32 @@ class Nav extends React.Component {
               <Paper>
                 <ClickAwayListener onClickAway={this.handleMenuClose}>
                   <MenuList>
-                    <MenuItem>
-                      <ListItemIcon><Home /></ListItemIcon>
-                      <ListItemText inset primary="首页"/>
-                    </MenuItem>
-                    <MenuItem>
-                      <ListItemIcon><LibraryBooks /></ListItemIcon>
-                      <ListItemText inset primary="帖子"/>
-                    </MenuItem>
-                    <MenuItem>
-                      <ListItemIcon><ImportContacts /></ListItemIcon>
-                      <ListItemText inset primary="教程"/>
-                    </MenuItem>
-                    <MenuItem>
-                      <ListItemAvatar>
-                        <Avatar src={projectConfig.myVatar} className={classes.avatar} />
-                      </ListItemAvatar>
-                      <ListItemText inset primary="作者"/>
-                    </MenuItem>
+                    <Link to="/">
+                      <MenuItem onClick={this.handleMenuClose}>
+                        <ListItemIcon><Home /></ListItemIcon>
+                        <ListItemText inset primary="首页"/>
+                      </MenuItem>
+                    </Link>
+                    <Link to="/posts">
+                      <MenuItem onClick={this.handleMenuClose}>
+                        <ListItemIcon><LibraryBooks /></ListItemIcon>
+                        <ListItemText inset primary="帖子"/>
+                      </MenuItem>
+                    </Link>
+                    <Link to="learn">
+                      <MenuItem onClick={this.handleMenuClose}>
+                        <ListItemIcon><ImportContacts /></ListItemIcon>
+                        <ListItemText inset primary="教程"/>
+                      </MenuItem>
+                    </Link>
+                    <Link to="author">
+                      <MenuItem onClick={this.handleMenuClose}>
+                        <ListItemAvatar>
+                          <Avatar src={projectConfig.myVatar} className={classes.avatar} />
+                        </ListItemAvatar>
+                        <ListItemText inset primary="作者"/>
+                      </MenuItem>
+                    </Link>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

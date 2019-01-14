@@ -1,6 +1,8 @@
 import React from 'react'
-import Nav from '../Nav/Nav'
-import createRoutes from '../../router/router'
+import Nav from '../components/Nav/Nav'
+import createRoutes from './router'
+import Footer from '../components/Footer/Footer'
+import '../styles/global.css'
 
 export default class App extends React.Component {
   render () {
@@ -8,6 +10,7 @@ export default class App extends React.Component {
       <div>
         <Nav />
         {createRoutes()}
+        <Footer />
       </div>
     )
   }

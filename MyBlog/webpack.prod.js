@@ -3,8 +3,8 @@ const commonConfig = require('./webpack.config')
 const merge = require('webpack-merge')
 const CleanWebpackPlugins = require('clean-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyWepackPlugin = require('copy-webpack-plugin')
 /* 生产环境中默认启用了tree-shaking中的插件 用于移除上下文中未使用到的代码 */
 module.exports = merge(commonConfig, {
   devtool:'source-map',
@@ -23,10 +23,14 @@ module.exports = merge(commonConfig, {
     new CleanWebpackPlugins(['dist']),
     /* 把css文件从js脚本抽离出来 */
     new ExtractTextPlugin({
-      filename:'[name].[chunkhash].css',
-      allChunks:true
+      filename: 'styles/[name].[chunkhash].css'
     }),
-    new BundleAnalyzerPlugin()
-  ],
+    /* 拷贝public目录 */
+    new CopyWepackPlugin([
+      { from:'public', to:'public' }
+    ])
+    /* 打包分析 */
+    // new BundleAnalyzerPlugin()
+  ]
 })
 
