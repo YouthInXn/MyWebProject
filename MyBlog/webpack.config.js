@@ -4,7 +4,6 @@ const path  = require('path')
 const WebpackHtmlPlugin = require('html-webpack-plugin')
 const projectConfig = require('./myBlog.config')
 const webpack = require('webpack')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   // webpack 入口
@@ -98,13 +97,5 @@ module.exports = {
     }),
     /* 减少第三方库的加载,保证第三方库的hash在修改代码未改变时不变 */
     new webpack.HashedModuleIdsPlugin(),
-    /* 压缩优化 */
-    new UglifyJSPlugin({
-      cache: true
-    }),
-    /* 指定lib中引用哪些内容 */
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
   ]
 }

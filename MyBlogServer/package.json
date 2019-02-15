@@ -1,0 +1,22 @@
+{
+  "name": "myblogserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor app.js"
+  },
+  "author": "YouthInXian",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.7"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}

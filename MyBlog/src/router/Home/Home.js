@@ -1,6 +1,7 @@
 import React from 'react'
-import { Divider } from '@material-ui/core'
 import './home.css'
+import Footer from '../../components/Footer/Footer'
+import Stripe from '../../components/Stripe/Stripe'
 
 export default class Home extends React.Component {
   componentDidMount () {
@@ -10,8 +11,12 @@ export default class Home extends React.Component {
     }, 500)
   }
   render () {
-    return <div id="Welcome" className='hide'>
-      <div className="title"><h1>Welcome To My Life!</h1></div>
+    return <div>
+      <Stripe />
+      <div id="Welcome" className='hide'>
+        <div className="title"><h1>Welcome To My Life!</h1></div>
+      </div>
+      <Footer />
     </div>
   }
 }

@@ -12,12 +12,14 @@ import {
 import { withStyles } from '@material-ui/core/styles'
 import projectConfig from '../../../myBlog.config'
 import { Link } from 'react-router-dom'
+import TopBar from './TopBar'
 /* 类似IndexRoute,不受路由改变影响，一直显示 */
 
 const navStyle = {
   position:'absolute',
   top:'20px',
-  left:'60px'
+  left:'60px',
+  zIndex:10
 }
 // const linkStyle = {
 //   textDecoration:'none'
@@ -33,7 +35,7 @@ const styles = theme => ({
   avatar:{
     width:27,
     height:27,
-    marginRight: 15
+    marginRight: 13
   }
 })
 
@@ -42,64 +44,72 @@ class Nav extends React.Component {
     open:false
   }
   render () {
-    /* 导航使用一个按钮，下拉菜单 0.首页 1.博文 2.前端教程 3.生活动态 */
+    /* 导航使用一个按钮，下拉菜单 0.首页 1.帖子 2.前端教程 3.留言板 4.关于作者 */
     const { classes } = this.props
     const { open } = this.state
     return (
-      <div style={navStyle}>
-        <Fab
-          onClick={this.handleMenuToggle}
-          color="primary"
-          buttonRef={node => this.anchorEl = node}
-        >
-          <Menu />
-        </Fab>
-        <Popper
-          open={open}
-          anchorEl={this.anchorEl}
-          transition
-          disablePortal
-        >
-          { ({ TransitionProps, placement }) => {
-            return <Grow
-              {...TransitionProps}
-              style={{transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'}}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={this.handleMenuClose}>
-                  <MenuList>
-                    <Link to="/">
-                      <MenuItem onClick={this.handleMenuClose}>
-                        <ListItemIcon><Home /></ListItemIcon>
-                        <ListItemText inset primary="首页"/>
-                      </MenuItem>
-                    </Link>
-                    <Link to="/posts">
-                      <MenuItem onClick={this.handleMenuClose}>
-                        <ListItemIcon><LibraryBooks /></ListItemIcon>
-                        <ListItemText inset primary="帖子"/>
-                      </MenuItem>
-                    </Link>
-                    <Link to="learn">
-                      <MenuItem onClick={this.handleMenuClose}>
-                        <ListItemIcon><ImportContacts /></ListItemIcon>
-                        <ListItemText inset primary="教程"/>
-                      </MenuItem>
-                    </Link>
-                    <Link to="author">
-                      <MenuItem onClick={this.handleMenuClose}>
-                        <ListItemAvatar>
-                          <Avatar src={projectConfig.myVatar} className={classes.avatar} />
-                        </ListItemAvatar>
-                        <ListItemText inset primary="作者"/>
-                      </MenuItem>
-                    </Link>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          }}
-        </Popper>
+      <div>
+        <div style={navStyle}>
+          <Fab
+            onClick={this.handleMenuToggle}
+            color="primary"
+            buttonRef={node => this.anchorEl = node}
+          >
+            <Menu />
+          </Fab>
+          <Popper
+            open={open}
+            anchorEl={this.anchorEl}
+            transition
+            disablePortal
+          >
+            { ({ TransitionProps, placement }) => {
+              return <Grow
+                {...TransitionProps}
+                style={{transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'}}
+              >
+                <Paper>
+                  <ClickAwayListener onClickAway={this.handleMenuClose}>
+                    <MenuList>
+                      <Link to="/">
+                        <MenuItem onClick={this.handleMenuClose}>
+                          <ListItemIcon><Home /></ListItemIcon>
+                          <ListItemText inset primary="首页"/>
+                        </MenuItem>
+                      </Link>
+                      <Link to="/posts">
+                        <MenuItem onClick={this.handleMenuClose}>
+                          <ListItemIcon><LibraryBooks /></ListItemIcon>
+                          <ListItemText inset primary="帖子"/>
+                        </MenuItem>
+                      </Link>
+                      <Link to="learn">
+                        <MenuItem onClick={this.handleMenuClose}>
+                          <ListItemIcon><ImportContacts /></ListItemIcon>
+                          <ListItemText inset primary="前端教程"/>
+                        </MenuItem>
+                      </Link>
+                      <Link to="author">
+                        <MenuItem onClick={this.handleMenuClose}>
+                          <ListItemAvatar>
+                            <Avatar src={projectConfig.myVatar} className={classes.avatar} />
+                          </ListItemAvatar>
+                          <ListItemText inset primary="关于作者"/>
+                        </MenuItem>
+                      </Link>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            }}
+          </Popper>
+        </div>
+        <TopBar
+          user={this.props.user}
+          login={this.props.login}
+          register={this.props.register}
+          getLoginUser={this.props.getLoginUser}
+        />
       </div>
     )
   }

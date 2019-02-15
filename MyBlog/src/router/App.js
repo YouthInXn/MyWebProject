@@ -1,16 +1,16 @@
 import React from 'react'
-import Nav from '../components/Nav/Nav'
+import NavContainers from '../components/Nav/NavContainers'
 import createRoutes from './router'
-import Footer from '../components/Footer/Footer'
 import '../styles/global.css'
+import ProgressContainer from '../components/Progress/ProgressContainer'
 
 export default class App extends React.Component {
   render () {
     return (
       <div>
-        <Nav />
+        <ProgressContainer />
+        <NavContainers />
         {createRoutes()}
-        <Footer />
       </div>
     )
   }
