@@ -1,6 +1,7 @@
 
 var Mongoose = require('mongoose')
 const dbConfig = require('./dbconfig.js')
+Mongoose.Promise = global.Promise
 
 const DB_URL = `${dbConfig.url}/${dbConfig.dbName}`
 // 连接

@@ -21,35 +21,25 @@ const hideStyle = {
 }
 
 class Progress extends React.Component {
-  state = {
-    messageOpen:false
-  }
-  componentWillReceiveProps (nextProps, nextState) {
-    if (nextProps.message && nextProps.message !== this.props.message) {
-      this.setState({ messageOpen:true })
-    }
-  }
   render () {
+    const { message, loading, open, closeMessage } = this.props
     return <div>
-      <div style={this.props.loading ? loadingStyle : hideStyle}>
+      <div style={loading ? loadingStyle : hideStyle}>
         <LinearProgress  />
       </div>
       <Snackbar
-        open={this.state.messageOpen}
-        onClose={this.handleClose}
+        open={open}
+        onClose={closeMessage}
         autoHideDuration={2000}
-        message={<span>{this.props.message}</span>}
+        message={<span>{message}</span>}
         anchorOrigin={{ vertical:'bottom', horizontal:'right' }}
         action={[
-          <IconButton color="secondary" key="close" aria-label="Close" onClick={this.handleClose}>
+          <IconButton color="secondary" key="close" aria-label="Close" onClick={closeMessage}>
             <CloseIcon/>
           </IconButton>
         ]}
       />
     </div>
-  }
-  handleClose = () => {
-    this.setState({ messageOpen:false })
   }
 }
 

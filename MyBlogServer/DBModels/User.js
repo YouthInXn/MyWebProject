@@ -7,7 +7,9 @@ const UserSchema = new Schema({
   name:{
     type:String,
     // 使用内建验证器
-    required:[true, '请输入用户名！']
+    required:[true, '请输入用户名！'],
+    maxLength:20,
+    minLength:2,
   },
   age:{
     type:Number,
@@ -22,14 +24,8 @@ const UserSchema = new Schema({
   email:String,
   password:String,
   // TODO UserStar:{}
-  fans:{
-    type:Number,
-    min:[0, '粉丝数不能少于0！']
-  },
-  type:{
-    type:String,
-    enum: ['AUTHOR','NORMAL']
-  },
+  fans:{ type:Array },
+  admin:{ type:Boolean },
   avatar:String,
   desc:String,
   lastLoginDate:{
@@ -42,5 +38,5 @@ const UserSchema = new Schema({
     // 去掉版本控制 _v字段
     versionKey:false
   })
-
-module.exports = Mongoose.model('User',UserSchema)
+module.exports.UserSchema = UserSchema
+module.exports.UserModel = Mongoose.model('User',UserSchema)

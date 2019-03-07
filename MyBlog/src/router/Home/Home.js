@@ -11,12 +11,11 @@ export default class Home extends React.Component {
     }, 500)
   }
   render () {
-    return <div>
-      <Stripe />
+    return <div style={{ overflow:'hidden' }}>
       <div id="Welcome" className='hide'>
         <div className="title"><h1>Welcome To My Life!</h1></div>
       </div>
-      <Footer />
+      <Stripe />
     </div>
   }
 }

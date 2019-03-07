@@ -1,6 +1,15 @@
-const User = require('../DBModels/User')
+const User = require('../DBModels/User').UserModel
 const getUserFromCookie = require('../util/cookie')
 class UserServices {
+  // 获取作者信息
+  static async getAuthorInfo (ctx) {
+    const author = await User.findOne({ admin:true }).exec()
+    if (author) {
+      ctx.body = { isSuccess:true, message:null, author }
+    } else {
+      ctx.body = { isSuccess:false, message:'数据获取失败！' }
+    }
+  }
   // 用户登录
   static async login (ctx) {
     const param = ctx.request.body
@@ -27,19 +36,13 @@ class UserServices {
           overwrite:false,
           // expires:new Date('2019-2-16')
         })
-        ctx.response.body = {
-          message: '登录成功！',
-          isSuccess: true,
-          user: user._doc
-        }
+        ctx.response.body = { message: '登录成功！', isSuccess: true, user: user._doc }
+        console.log('用户登录：' + user._doc.name)
       } else {
-        ctx.response.body = {
-          message: '密码错误！',
-          isSuccess:false
-        }
+        ctx.response.body = { message: '密码错误！', isSuccess:false }
       }
     } else {
-      ctx.throw(500, '参数错误')
+      ctx.body = { isSuccess:false, message:'账号或密码错误!' }
     }
   }
   // 获取用户登录状态
@@ -73,16 +76,27 @@ class UserServices {
         }
         return
       }
-      const user = new User({ ...param, lastLoginDate: Date.now()})
+      const user = new User({ ...param, lastLoginDate: Date.now(), admin:false })
       const res = await user.save()
       ctx.statusCode = 200
+      // 设置cookie
+      ctx.cookies.set('_id', res.get('_id'), {
+        domain:'localhost',
+        path:'/',
+        maxAge:120 * 60 * 1000,
+        secure: false,
+        httpOnly:true,
+        overwrite:false,
+        // expires:new Date('2019-2-16')
+      })
       ctx.body = {
         isSuccess:true,
         message:`用户${param.name}注册成功！`,
         user:res
       }
+      console.log(`新用户注册：${param.name}`)
     } else {
-      ctx.throw(500, '参数错误')
+      ctx.body = { isSuccess: false, message:'用户名或者密码错误！' }
     }
   }
   // 获取用户信息
@@ -94,6 +108,28 @@ class UserServices {
     const data = await User.find({}, function (res) {
       console.log(res)
     })
+  }
+  // 喜欢作者
+  static async likesAuthor (ctx, next) {
+    const loginUser = await getUserFromCookie(ctx)
+    if (!loginUser) {
+      ctx.body = {isSuccess: false, message: '当前未登录。'}
+      return
+    }
+    const author = await User.findOne({admin: true}).exec()
+    if (author.fans.indexOf(loginUser._id) >= 0) {
+      ctx.body = {isSuccess: false, message: '不能再喜欢了！'}
+      return
+    }
+    author.fans.push(loginUser._id)
+    const r = await new Promise(function (resolve) {
+      author.save(function (err, author) {
+        if (err) { ctx.throw(err) }
+        else { resolve(author) }
+      })
+    })
+    ctx.body = { isSuccess:true, message:'感谢关注！', author:r }
+    console.log('新增关注：' + loginUser.name)
   }
 }
 

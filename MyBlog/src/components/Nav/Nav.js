@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles'
 import projectConfig from '../../../myBlog.config'
 import { Link } from 'react-router-dom'
 import TopBar from './TopBar'
+import {getLoginUser} from "../../redux/user";
 /* 类似IndexRoute,不受路由改变影响，一直显示 */
 
 const navStyle = {
@@ -89,10 +90,10 @@ class Nav extends React.Component {
                           <ListItemText inset primary="前端教程"/>
                         </MenuItem>
                       </Link>
-                      <Link to="author">
+                      <Link to="/author/aboutme">
                         <MenuItem onClick={this.handleMenuClose}>
                           <ListItemAvatar>
-                            <Avatar src={projectConfig.myVatar} className={classes.avatar} />
+                            <Avatar src={projectConfig.myAvatar} className={classes.avatar} />
                           </ListItemAvatar>
                           <ListItemText inset primary="关于作者"/>
                         </MenuItem>
@@ -104,12 +105,7 @@ class Nav extends React.Component {
             }}
           </Popper>
         </div>
-        <TopBar
-          user={this.props.user}
-          login={this.props.login}
-          register={this.props.register}
-          getLoginUser={this.props.getLoginUser}
-        />
+        <TopBar { ...this.props } />
       </div>
     )
   }

@@ -2,6 +2,7 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 import './stripe.css'
+import { getRandomColor } from '../../../util/commonFunc'
 
 class Stripe extends React.Component {
   componentDidMount () {
@@ -34,13 +35,3 @@ class Stripe extends React.Component {
 }
 
 export default Stripe
-
-// 随机颜色，十六进制方法；
-function getRandomColor () {
-  let rand = Math.floor(Math.random( ) * 0xFFFFFF).toString(16)
-  if(rand.length == 6){
-    return rand
-  }else{
-    return getRandomColor()
-  }
-}

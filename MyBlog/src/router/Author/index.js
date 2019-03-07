@@ -1,6 +1,3 @@
-import React from 'react'
-import Author from './components/author'
+import AuthorContainer from './components/AuthorContainer'
 
-export default function () {
-  return <Author/>
-}
+export default AuthorContainer

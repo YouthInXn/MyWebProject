@@ -1,12 +1,19 @@
 import Progress from './Progress'
 import { connect } from 'react-redux'
+import { NOTICE_MESSAGE_CLOSE } from './constant.js'
 
-const mapStateToProps = ({ xhr:{ loading, isSuccess, message } }) => {
+
+const mapStateToProps = ({ progress:{ loading, message, open } }) => {
   return {
     loading,
     message,
-    isSuccess
+    open
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    closeMessage: () => dispatch({ type:NOTICE_MESSAGE_CLOSE })
   }
 }
 
-export default connect(mapStateToProps, null)(Progress)
+export default connect(mapStateToProps, mapDispatchToProps)(Progress)

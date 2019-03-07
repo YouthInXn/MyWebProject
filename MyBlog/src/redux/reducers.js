@@ -1,30 +1,18 @@
-import counter from '../router/Counter/reducers/reducers'
+/* eslint-disable no-case-declarations */
 import user from './user'
-import { LOADING_DATA, RECEIVED_DATA } from './constants'
+import author from '../router/Author/authorReducer'
+import progress from '../components/Progress/reducers'
+
 /*
 * 整合所有的顶级reducers
 * 按照这种模式继续拆分，顶级reducers可以按照菜单模块划分
 * */
 
-const initState = {
-  isSuccess:false,
-  message:'',
-  loading:false
-}
-
-function xhr(state = initState, action) {
-  switch (action.type) {
-  case LOADING_DATA:
-    return Object.assign({}, state, { isSuccess:false, loading:true, message:'' })
-  case RECEIVED_DATA:
-    return Object.assign({}, state, { isSuccess:action.isSuccess, loading:false, message:action.message })
-  default:
-    return state
-  }
-}
-
 module.exports = {
-  xhr,
-  counter,
+  // 请求状态LOADING MESSAGE统一管理
+  progress,
+  // 用户相关
   user,
+  // author整合三个模块的reducer
+  author
 }

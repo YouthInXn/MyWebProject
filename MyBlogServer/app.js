@@ -4,6 +4,7 @@ const router = require('./router')
 const staticServer = require('koa-static')
 const bodyParser = require('koa-bodyparser')
 const path = require('path')
+const handleValidationError = require('./DBModels/ValidationErrorHandle').handleValidationError
 
 const app = new Koa()
 
@@ -11,6 +12,10 @@ const errorHandler = async (ctx, next) => {
   try {
     await next()
   } catch (e) {
+    if (e.name === 'ValidationError') {
+      handleValidationError(e, ctx)
+      return
+    }
     console.error(e.message + ':' + e.stack)
     ctx.response.status = e.statusCode || e.status || 500
     ctx.response.body = {
@@ -37,7 +42,7 @@ app.use(bodyParser())
 // 处理错误
 app.use(errorHandler)
 // static files
-app.use(staticServer(path.join(__dirname, 'public')))
+app.use(staticServer(path.join(__dirname, '/public')))
 // routes
 app.use(router.routes())
 

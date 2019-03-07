@@ -3,23 +3,19 @@ import {
   IconButton, Tooltip, Dialog,
   DialogContent, DialogTitle, DialogActions,
   DialogContentText, TextField, Button,
-  Slide, Avatar
+  Slide, Avatar, Chip
 } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
 import './nav.css'
 
 const buttonStyle = {
-  color:'#3B426B',
+  color:'#3F51B5',
   width:'37px',
   height:'37px'
 }
 const avatarStyle = {
   color:'#fff',
-  backgroundColor:'#673AB7',
-  width:'30px',
-  height:'30px',
-  padding:'0px',
-  margin:'0px'
+  backgroundColor:'#3F51B5',
 }
 function Trans(props) {
   return <Slide direction="down" {...props} />
@@ -27,7 +23,6 @@ function Trans(props) {
 
 class TopBar extends React.Component {
   state = {
-    open:false,
     hasAccount:false,
     nameError:false,
     pwdError:false,
@@ -41,36 +36,40 @@ class TopBar extends React.Component {
     this.props.getLoginUser()
   }
   componentWillReceiveProps (nextProps, nextState) {
-    if (nextProps.user.name) {
-      this.setState({ ...this.state, open:false, user:{ ...nextProps.user } })
+    if (nextProps.user !== this.props.user && nextProps.user.hasOwnProperty('name')) {
+      this.setState({ ...this.state, user:{ ...nextProps.user } })
     }
   }
   render () {
     const user = this.state.user
+    const { showLoginPop, hideLoginPop, popShow } = this.props
     return <div className="topbar">
-      <a target="_blank" href="https://github.com/YouthInXn/MyWebProject/tree/master/MyBlog">
-        <Tooltip title="源码">
-          <IconButton style={{ margin:'10px' }}>
-            <img style={{ width:'30px', height:'30px' }} src="/public/github.png" />
-          </IconButton>
-        </Tooltip>
-      </a>
+      {/*<a target="_blank" href="https://github.com/YouthInXn/MyWebProject/tree/master/MyBlog">*/}
+      {/*<Tooltip title="源码">*/}
+      {/*<IconButton style={{ margin:'10px' }}>*/}
+      {/*<img style={{ width:'30px', height:'30px' }} src="/public/github.png" />*/}
+      {/*</IconButton>*/}
+      {/*</Tooltip>*/}
+      {/*</a>*/}
       {user.hasOwnProperty('name')
-        ? <Tooltip title={user.name}>
-          <IconButton>
-            <Avatar style={avatarStyle}>{user.name.trim().substr(0, 1).toUpperCase()}</Avatar>
-          </IconButton>
-        </Tooltip>
+        ? <div>
+          <Tooltip title={user.name}>
+            <Chip
+              avatar={<Avatar style={avatarStyle}>{user.name.trim().substr(0, 1).toUpperCase()}</Avatar>}
+              label={user.name}
+            />
+          </Tooltip>
+        </div>
         : <Tooltip title="登录">
-          <IconButton onClick={this.openDialogs}>
+          <IconButton onClick={() => showLoginPop()}>
             <AccountCircle style={buttonStyle}/>
           </IconButton>
         </Tooltip>}
       <Dialog
         TransitionComponent={Trans}
         maxWidth="sm"
-        open={this.state.open}
-        onClose={this.closeDialogs}
+        open={popShow}
+        onClose={() => hideLoginPop()}
         aria-labelledby="form-dialog-title"
       >
         {this.state.hasAccount
@@ -100,15 +99,19 @@ class TopBar extends React.Component {
               placeholder:this.state.hasAccount ? '输入密码' :'密码无强度要求',
               onChange: (e) => this.handleInputChange('pwd', e),
               required:true,
+              onKeyDown:(e) => {
+                e.keyCode === 13 && this.handleLogin()
+              }
             }}
             id="pwd"
             label="密码"
             type="password"
             fullWidth
           />
+          {/*<input />*/}
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.closeDialogs} color="default">
+          <Button onClick={() => hideLoginPop()} color="default">
             等会再说
           </Button>
           <Button onClick={this.handleLogin} color="primary">
@@ -117,12 +120,6 @@ class TopBar extends React.Component {
         </DialogActions>
       </Dialog>
     </div>
-  }
-  openDialogs = () => {
-    this.setState({ open:true })
-  }
-  closeDialogs = () => {
-    this.setState({ open:false })
   }
   handleLogin = () => {
     const { name, pwd, hasAccount } = this.state

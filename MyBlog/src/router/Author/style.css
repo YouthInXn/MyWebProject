@@ -1,0 +1,30 @@
+
+.sidebar {
+  z-index: -1;
+  height:40%;
+  width:100%;
+  position:absolute;
+  left:0;
+  top:0;
+  padding-top:150px;
+  background-image:url('/public/sideBarBackground.jpg');
+  color:white;
+}
+.listItem {
+  text-align: center;
+  color:white;
+}
+.contactShow {
+  transition: opacity 2s;
+  height: 300px;
+  width: 100%;
+  opacity: 1;
+  margin: 30px auto;
+}
+.contactHide {
+  transition: opacity 1s;
+  height: 300px;
+  width: 100%;
+  opacity: 0;
+  margin: 30px auto;
+}

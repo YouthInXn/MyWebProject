@@ -10,7 +10,8 @@ module.exports = merge(commonConfig, {
   devtool: 'inline-source-map',
   output:{
     /* 这里本该使用chunkhash，否则分离白做了，每次修改代码hash都会变，只在开发环境下 */
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath:'/'
   },
   module:{
     rules:[
