@@ -13,7 +13,6 @@ import { withStyles } from '@material-ui/core/styles'
 import projectConfig from '../../../myBlog.config'
 import { Link } from 'react-router-dom'
 import TopBar from './TopBar'
-import {getLoginUser} from "../../redux/user";
 /* 类似IndexRoute,不受路由改变影响，一直显示 */
 
 const navStyle = {

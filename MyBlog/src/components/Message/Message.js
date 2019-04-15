@@ -28,21 +28,22 @@ import React, { Component } from 'react'
 import {
   Card, CardHeader, Avatar, CardContent,
   Typography, CardActions, Button, Collapse,
-  Divider, TextField, Grid
+  Divider,
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { FavoriteBorder, ChatBubbleOutline, Favorite } from '@material-ui/icons'
-import Comment from '../Comment/Comment'
+import CommentList from '../Comment/CommentList'
 import { Link } from 'react-router-dom'
 import { getLocalTime } from '../../../util/commonFunc'
 import _ from 'lodash'
+import { connect } from 'react-redux'
 
 const styles = (theme) => ({
   likes: {
     marginLeft:'auto'
   },
   message: {
-    margin:theme.spacing.unit * 2
+    margin:theme.spacing.unit
   },
   hasLiked : {
     color:'#F50057'
@@ -51,21 +52,14 @@ const styles = (theme) => ({
     textAlign:'center'
   },
   commentArea: {
-    width:'90%',
-    margin:'20px auto 10px auto'
-  },
-  textField: {
-    width:'80%',
-    margin:'0 auto'
+    width:'95%',
+    margin:'5px auto 5px auto'
   }
 })
 
 class Message extends Component{
   state = {
     commentVisible:false,
-    value:'',
-    noValue: false,
-    showReply:''
   }
   componentWillReceiveProps (nextProps, nextState) {
     if (!_.isEqual(nextProps.message, this.props.message)) {
@@ -73,12 +67,12 @@ class Message extends Component{
     }
   }
   render () {
-    const { user, time, content, comments, likesUsers} = this.props.message
-    const { classes, likeMsg, loginUserId } = this.props
-    if (comments && comments.length) {
-      comments.sort((a, b) => b.time - a.time)
-    }
-    const userLink = `/users/${user._id}`
+    // mId来自于父组件， msgs, userList来自store
+    const { msgs, mId, userList, classes, likeMsg, loginUserId } = this.props
+    const m = msgs.byId[mId]
+    const { time, content, likesUsers, comments } = m
+    const user = userList.byId[m.user]
+    const userLink = `/users/${user}`
     return <div className={classes.message}>
       <Card>
         <CardHeader
@@ -91,7 +85,7 @@ class Message extends Component{
           <Typography component="p">{content}</Typography>
         </CardContent>
         <CardActions>
-          <Button className={classes.likes} onClick={likeMsg}>
+          <Button className={classes.likes} onClick={likesUsers.includes(loginUserId) ? () => {} : likeMsg}>
             {likesUsers.includes(loginUserId) ? <Favorite className={classes.hasLiked}/> : <FavoriteBorder/>}
             &nbsp;{likesUsers.length}</Button>
           <Button onClick={this.showComment}>
@@ -103,53 +97,13 @@ class Message extends Component{
           <div>
             <Divider/>
             <div className={classes.commentArea}>
-              <TextField
-                value={this.state.value}
-                error={this.state.noValue}
-                id="standard-textarea"
-                label="写下你的评论.."
-                multiline
-                className={classes.textField}
-                margin="normal"
-                onChange={this.inputChange}
-                variant="outlined"
-              />
-              <p>
-                <Button onClick={this.beforeCommitComment} variant="outlined" color="primary">提交</Button>
-              </p>
-              {comments && comments.length ? comments.map(c => {
-                return <Comment
-                  handleReply={this.handleReply}
-                  showReply={this.state.showReply}
-                  key={c._id}
-                  comment={c}
-                  // commitReply={this.props.commitReply}
-                />
-              }) : null}
+              {/*{ 这里是一个CommentsList的容器组件, 告诉它comments的ID数组，它知道怎么渲染！ }*/}
+              <CommentList mId={mId} data={comments} />
             </div>
           </div>
         </Collapse>
       </Card>
     </div>
-  }
-  // 处理输入框变化
-  inputChange = (e) => {
-    this.setState({ value:e.target.value })
-  }
-  // 点击回复按钮
-  handleReply = (commentId) => {
-    this.setState({ showReply:commentId })
-  }
-  // 点击提交评论
-  beforeCommitComment = () => {
-    if (!this.state.value.trim()) {
-      this.setState({ noValue:true })
-      return
-    }
-    // 参数组织
-    const { message } = this.props
-    const param = { messageId:message._id, content:this.state.value }
-    this.props.commitComment(param)
   }
   // 显示评论列表
   showComment = () => {
@@ -157,4 +111,8 @@ class Message extends Component{
   }
 }
 
-export default withStyles(styles)(Message)
+const MessageWithStyle = withStyles(styles)(Message)
+
+const stateToProps = ({ msgs, userList }) => { return { msgs, userList } }
+
+export default connect(stateToProps, null)(MessageWithStyle)

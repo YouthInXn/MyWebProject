@@ -3,7 +3,7 @@ import {
   RECEIVED_DATA,
   LOST_DATA,
   RECEIVED_DATA_NOTICE,
-} from '../../components/Progress/constant'
+} from '../../redux/constants/constants'
 import { userUrl } from '../../urlConfig'
 
 export const GET_AUTHOR_INFO = 'GET_AUTHOR_INFO'

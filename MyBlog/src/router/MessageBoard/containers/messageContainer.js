@@ -1,13 +1,16 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Message from '../components/MessageList'
-import { getAllMessage, addNewMessage, likeMessage, commitComment, replyComment } from '../actions/messageActions'
-import { showLoginPop } from '../../../redux/user'
+import MessageList from '../components/MessageList'
+import { getAllMessage, addNewMessage, likeMessage, replyComment } from '../actions/messageActions'
+import { showLoginPop } from '../../../redux/globalUser'
 
-const mapStateToProps = ({ author: { message: { msgs } }, user: { current } }) => {
+const mapStateToProps = (state) => {
+  const { allIds } = state.msgs
+  const { currentUser: { current } } = state
   return {
-    msgs,
-    user:current
+    msgs:allIds,
+    // 当前登录的用户
+    user:current,
   }
 }
 
@@ -17,11 +20,10 @@ const mapDispatchToProps = (dispatch) => {
     addNewMessage,
     likeMessage,
     showLoginPop,
-    commitComment,
     replyComment
   }, dispatch)
 }
 
-const MessageListContainer = connect(mapStateToProps, mapDispatchToProps)(Message)
+const MessageListContainer = connect(mapStateToProps, mapDispatchToProps)(MessageList)
 
 export default MessageListContainer

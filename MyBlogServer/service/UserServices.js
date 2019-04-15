@@ -28,12 +28,13 @@ class UserServices {
         ctx.response.statusCode = 200
         // 设置cookie
         ctx.cookies.set('_id', queryResult.get('_id'), {
+          // TODO 可访问的域名动态化
           domain:'localhost',
           path:'/',
-          maxAge:120 * 60 * 1000,
+          maxAge:2 * 60 * 60 * 1000,
           secure: false,
           httpOnly:true,
-          overwrite:false,
+          overwrite:true,
           // expires:new Date('2019-2-16')
         })
         ctx.response.body = { message: '登录成功！', isSuccess: true, user: user._doc }
@@ -63,7 +64,21 @@ class UserServices {
     }
   }
   // 用户登出
-  static async logout (ctx, next) {}
+  static async logout (ctx) {
+    ctx.response.statusCode = 200
+    ctx.cookies.set('_id', '-', {
+      domain:'localhost',
+      path:'/',
+      secure: false,
+      httpOnly:true,
+      overwrite:false,
+      expires:new Date('2019-1-1') // 删除cookies
+    })
+    ctx.response.body = {
+      isSuccess:true,
+      message:`已登出。`
+    }
+  }
   // 注册用户
   static async register (ctx) {
     const param = ctx.request.body

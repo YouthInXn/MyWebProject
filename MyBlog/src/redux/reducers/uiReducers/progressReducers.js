@@ -1,7 +1,7 @@
 import {
-  NOTICE_MESSAGE_CLOSE, NOTICE_MESSAGE_OPEN, TOGGLE_LOADING,
   LOADING_DATA, RECEIVED_DATA_NOTICE, RECEIVED_DATA, LOST_DATA
-} from './constant'
+} from '../../constants/constants'
+import {  NOTICE_MESSAGE_CLOSE, NOTICE_MESSAGE_OPEN, TOGGLE_LOADING } from '../../../components/Progress/constants'
 
 
 const initState = {

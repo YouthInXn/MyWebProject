@@ -3,7 +3,7 @@ import Message from '../../../components/Message/Message'
 import { Divider, Button, Grid, Tooltip, TextField } from '@material-ui/core'
 import { Edit } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
-import {replyComment} from "../actions/messageActions";
+import _ from 'lodash'
 
 const styles = (theme) => {
   return {
@@ -14,7 +14,7 @@ const styles = (theme) => {
     },
     divider: {
       width:'100%',
-      margin:'20px 0'
+      margin:'10px 0'
     },
     editStyle: {
       fontSize:18,
@@ -25,7 +25,7 @@ const styles = (theme) => {
       margin:'10px auto 0px auto',
     },
     textContainerShow: {
-      transition:'height 1.5s',
+      transition:'height 0.8s',
       width:'90%',
       height:'160px',
       textAlign: 'center',
@@ -33,7 +33,7 @@ const styles = (theme) => {
       overflow:'hidden'
     },
     textContainerHide: {
-      transition:'height 1.5s',
+      transition:'height 0.8s',
       width:'90%',
       height:0,
       textAlign: 'center',
@@ -58,7 +58,7 @@ class MessageList extends Component {
     this.props.getAllMessage()
   }
   componentWillReceiveProps (nextProps, nextState) {
-    if (nextProps.msgs.length !== this.props.msgs.length) {
+    if (!_.isEqual(nextProps.msgs, this.props.msgs)) {
       this.setState({ value:'' })
     }
   }
@@ -101,15 +101,14 @@ class MessageList extends Component {
         </p>
       </div>
       {msgs.length
-        ? msgs.map(m =>
-          <Message
+        ? msgs.map(mId => {
+          return <Message
             loginUserId={user.hasOwnProperty('_id') ? user._id : null}
-            key={m._id}
-            message={m}
-            likeMsg={() => this.likeMsg(m._id)}
-            commitComment={this.handlecommitComment}
-            // commitReply={this.props.replyComment}
-          />)
+            key={mId}
+            mId={mId}
+            likeMsg={() => this.likeMsg(mId)}
+          />
+        })
         : <div className={classes.noData}>暂无留言</div>}
     </div>
   }
@@ -125,12 +124,6 @@ class MessageList extends Component {
   // 隐藏编辑
   hideEdit = () => {
     this.setState({ showEdit:false })
-  }
-  // 提交评论
-  handlecommitComment = (param) => {
-    if(this.didNotLogin()) { return }
-    param = { ...param, userId:this.props.user._id }
-    this.props.commitComment(param)
   }
   // 提交留言
   commitMessage = () => {

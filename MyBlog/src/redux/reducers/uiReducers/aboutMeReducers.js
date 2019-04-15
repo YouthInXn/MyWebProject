@@ -1,12 +1,11 @@
 
-import { AUTHOR_CONTACT_SUCCESS, AUTHOR_CONTACT_FAILURE } from '../actions/aboutMeActions'
-import { GET_AUTHOR_INFO } from '../../Author/authorActionCreators'
+import { AUTHOR_CONTACT_SUCCESS, AUTHOR_CONTACT_FAILURE } from '../../../router/AboutMe/actions/aboutMeActions'
+import { GET_AUTHOR_INFO } from '../../../router/Author/authorActionCreators'
 const initState = {
   contact:{
     isSuccess:false,
     message:''
   },
-  author:null
 }
 
 const ACTION_HANDLE = {

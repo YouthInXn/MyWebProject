@@ -2,86 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="619ec810-76a9-43c3-b64d-d4e22576c85f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../MyBlog/mindex.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/public/Avator.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/public/mybg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Comment/Comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Message/Message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Progress/constant.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Progress/reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/WrapAnimation/WrapAnimation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/WrapAnimation/animation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/Middlewares/customPromiseMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/actions/aboutMeActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/components/AboutMe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/components/Contact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/components/MyInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/components/SendButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/components/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/containers/aboutMeContainers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/reducers/aboutMeReducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/authorActionCreators.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/authorReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/components/AuthorContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/components/Likes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/actions/messageActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/components/MessageList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/constants/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/containers/messageContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/reducers/messageReducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MyBlog/util/commonFunc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Contact/MessageTemplate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBModels/Comment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBModels/Message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBModels/Reply.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBModels/ValidationErrorHandle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/MessageRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/MessageServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/demo1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/funcUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/myBlog.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/myBlog.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Comment/CommentList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Comment/commentActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Progress/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Replies/Reply.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Replies/ReplyList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/components/Replies/replyActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/Normalizrs/normalizrMsgs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/constants/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/domainReducers/commentReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/domainReducers/messageReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/domainReducers/postReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/domainReducers/replyReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/domainReducers/usersReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/rootReducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/uiReducers/currentUserReducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/public/Avatar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/public/Avatar1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Comment/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Comment/Comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Message/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Message/Message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Nav/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Nav/Nav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Nav/NavContainers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Nav/NavContainers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Nav/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Nav/TopBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Nav/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Nav/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Progress/Progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Progress/Progress.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Progress/ProgressContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Progress/ProgressContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Stripe/Stripe.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Stripe/Stripe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Stripe/stripe.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/components/Stripe/stripe.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Progress/constant.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/components/Progress/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/uiReducers/progressReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/reducers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/rootReducers.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Author/components/author.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/components/Author.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Author/components/authorStyle/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Author/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/Home/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/redux/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/globalUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/containers/aboutMeContainers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/containers/aboutMeContainers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/AboutMe/reducers/aboutMeReducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/redux/reducers/uiReducers/aboutMeReducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Author/authorActionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/authorActionCreators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/Author/authorReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/Author/authorReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/actions/messageActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/actions/messageActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/components/MessageList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/components/MessageList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/constants/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/containers/messageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/containers/messageContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/MessageBoard/reducers/messageReducers.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/styles/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/src/urlConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/urlConfig.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MyBlog/src/xhr.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/src/xhr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MyBlog/webpack.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/webpack.dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MyBlog/util/commonFunc.js" beforeDir="false" afterPath="$PROJECT_DIR$/../MyBlog/util/commonFunc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBModels/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/DBModels/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/db.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contact/messageList.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Contact/messageList.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBModels/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/DBModels/Comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBModels/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/DBModels/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/MessageRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/MessageRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/UserRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/UserRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/MessageServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/MessageServices.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/UserServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/UserServices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/util/cookie.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -96,23 +66,25 @@
     <session id="1363124669">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="33" />
-          <entry key="project.open.time.0" value="4" />
-          <entry key="project.open.time.1" value="10" />
+          <entry key="project.closed" value="46" />
+          <entry key="project.open.time.0" value="6" />
+          <entry key="project.open.time.1" value="17" />
           <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.2" value="6" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.27" value="2" />
           <entry key="project.open.time.29" value="1" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.34" value="2" />
           <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.48" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.opened" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -139,12 +111,13 @@
           <entry key="687" value="1" />
           <entry key="711" value="1" />
           <entry key="724" value="1" />
+          <entry key="745" value="1" />
           <entry key="782" value="1" />
           <entry key="835" value="1" />
           <entry key="editorconfig" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="109" />
+          <entry key="js" value="118" />
           <entry key="json" value="5" />
         </counts>
       </usages-collector>
@@ -152,7 +125,7 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="140" />
+          <entry key="JavaScript" value="150" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -160,31 +133,48 @@
         <counts>
           <entry key="650" value="1" />
           <entry key="660" value="1" />
-          <entry key="js" value="29371" />
+          <entry key="js" value="30158" />
           <entry key="json" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="94" />
-          <entry key="JavaScript" value="29373" />
+          <entry key="JavaScript" value="30160" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/MessageServices.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/service/UserServices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="192" column="34" lean-forward="true" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
+            <state relative-caret-position="396">
+              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
               <folding>
-                <element signature="n#!!block;n#contact#0;n#MessageServices#0" />
-                <element signature="n#!!block;n#addMessage#0;n#MessageServices#0" />
-                <element signature="n#!!block;n#getAllMessage#0;n#MessageServices#0" />
-                <element signature="n#!!block;n#getMessageById#0;n#MessageServices#0" />
+                <element signature="n#!!block;n#register#0;n#UserServices#0" />
+                <element signature="n#!!block;n#getAllUsers#0;n#UserServices#0" />
+                <element signature="n#!!block;n#likesAuthor#0;n#UserServices#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DBModels/User.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="625">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -192,17 +182,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/cookie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/funcUtils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="240">
+              <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -210,26 +191,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="120">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBModels/Reply.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DBModels/Comment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+            <state relative-caret-position="930">
+              <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -237,8 +209,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBModels/Message.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+            <state relative-caret-position="450">
+              <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -266,6 +238,12 @@
       <find>findOne</find>
       <find>save</find>
       <find>populate</find>
+      <find>toComment</find>
+      <find>logout</find>
+      <find>cookies</find>
+      <find>localhost</find>
+      <find>maxAge</find>
+      <find>getUserFromCookie</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -287,21 +265,21 @@
         <option value="$PROJECT_DIR$/test/demo1.js" />
         <option value="$PROJECT_DIR$/Contact/demo.js" />
         <option value="$PROJECT_DIR$/Contact/MessageTemplate.js" />
-        <option value="$PROJECT_DIR$/routes/UserRoutes.js" />
         <option value="$PROJECT_DIR$/DBModels/Comments.js" />
-        <option value="$PROJECT_DIR$/service/UserServices.js" />
         <option value="$PROJECT_DIR$/DBModels/ValidationErrorHandle.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/util/cookie.js" />
         <option value="$PROJECT_DIR$/DBModels/User.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/DBModels/Message.js" />
-        <option value="$PROJECT_DIR$/DBModels/Comment.js" />
-        <option value="$PROJECT_DIR$/routes/MessageRoutes.js" />
         <option value="$PROJECT_DIR$/db.js" />
         <option value="$PROJECT_DIR$/util/funcUtils.js" />
         <option value="$PROJECT_DIR$/DBModels/Reply.js" />
+        <option value="$PROJECT_DIR$/DBModels/Comment.js" />
+        <option value="$PROJECT_DIR$/routes/MessageRoutes.js" />
         <option value="$PROJECT_DIR$/service/MessageServices.js" />
+        <option value="$PROJECT_DIR$/DBModels/Message.js" />
+        <option value="$PROJECT_DIR$/routes/UserRoutes.js" />
+        <option value="$PROJECT_DIR$/service/UserServices.js" />
       </list>
     </option>
   </component>
@@ -422,16 +400,6 @@
             <path>
               <item name="MyBlogServer" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyBlogServer" type="462c0819:PsiDirectoryNode" />
-              <item name="DBModels" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyBlogServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyBlogServer" type="462c0819:PsiDirectoryNode" />
-              <item name="mongooseTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MyBlogServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MyBlogServer" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -462,12 +430,12 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\GitRepo\MyWebProject\MyBlogServer\public" />
-      <recent name="E:\GitRepo\MyWebProject\MyBlogServer\dao" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\GitRepo\MyWebProject\MyBlogServer" />
+      <recent name="E:\GitRepo\MyWebProject\MyBlogServer\dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitRepo\MyWebProject\MyBlogServer\public" />
       <recent name="E:\GitRepo\MyWebProject\MyBlogServer\dao" />
     </key>
   </component>
@@ -548,11 +516,24 @@
       <workItem from="1551597917249" duration="6596000" />
       <workItem from="1551660269214" duration="18686000" />
       <workItem from="1551705131798" duration="6726000" />
+      <workItem from="1551954276245" duration="1202000" />
+      <workItem from="1552005673755" duration="602000" />
+      <workItem from="1552013716779" duration="1947000" />
+      <workItem from="1552049077245" duration="1621000" />
+      <workItem from="1552114726922" duration="1233000" />
+      <workItem from="1552389643323" duration="1175000" />
+      <workItem from="1552476993339" duration="738000" />
+      <workItem from="1552822151385" duration="3208000" />
+      <workItem from="1552870607889" duration="5542000" />
+      <workItem from="1553695024994" duration="1601000" />
+      <workItem from="1553911627426" duration="6012000" />
+      <workItem from="1553926619018" duration="411000" />
+      <workItem from="1555293931815" duration="3881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235720000" />
+    <option name="totallyTimeSpent" value="264893000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,8 +554,8 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36675823" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.35714287" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.66895604" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.34065935" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32967034" />
@@ -771,20 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/UserRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -806,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBModels/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Contact/MessageTemplate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -820,72 +780,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/UserServices.js">
+    <entry file="file://$PROJECT_DIR$/DBModels/Reply.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBModels/Message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/MessageRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/cookie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="450">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/util/funcUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="210">
+          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBModels/Reply.js">
+    <entry file="file://$PROJECT_DIR$/routes/MessageRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="120">
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/MessageServices.js">
+    <entry file="file://$PROJECT_DIR$/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="192" column="34" lean-forward="true" selection-start-line="192" selection-start-column="34" selection-end-line="192" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!block;n#contact#0;n#MessageServices#0" />
-            <element signature="n#!!block;n#addMessage#0;n#MessageServices#0" />
-            <element signature="n#!!block;n#getAllMessage#0;n#MessageServices#0" />
-            <element signature="n#!!block;n#getMessageById#0;n#MessageServices#0" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBModels/Comment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="23" column="12" lean-forward="true" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        <state relative-caret-position="930">
+          <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBModels/Message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="31" column="3" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="31" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/UserRoutes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/MessageServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#contact#0;n#MessageServices#0" />
+            <element signature="n#!!block;n#getAllMessage#0;n#MessageServices#0" />
+            <element signature="n#!!block;n#getMessageById#0;n#MessageServices#0" />
+            <element signature="n#!!block;n#likesMessage#0;n#MessageServices#0" />
+            <element signature="n#!!block;n#commentsMessage#0;n#MessageServices#0" />
+            <element signature="n#!!block;n#replyComments#0;n#MessageServices#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/cookie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBModels/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/UserServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+          <folding>
+            <element signature="n#!!block;n#register#0;n#UserServices#0" />
+            <element signature="n#!!block;n#getAllUsers#0;n#UserServices#0" />
+            <element signature="n#!!block;n#likesAuthor#0;n#UserServices#0" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const customAxios = axios.create({
+export const customAxios = axios.create({
   withCredentials: true,
   timeout:3000
 })

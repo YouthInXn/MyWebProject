@@ -7,15 +7,32 @@ import {
 } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
 import './nav.css'
+import { customAxios } from '../../xhr'
+import {userUrl} from '../../urlConfig'
 
 const buttonStyle = {
   color:'#3F51B5',
   width:'37px',
   height:'37px'
 }
+const logoutStyle = {
+  color:'#000000',
+  margin:'0px'
+}
 const avatarStyle = {
   color:'#fff',
   backgroundColor:'#3F51B5',
+}
+const dividerStyle = {
+  borderTop:'0px',
+  borderBottom:'0px',
+  borderLeft:'0.5px solid #3F51B5',
+  borderRight:'0.5px solid #3F51B5',
+  position:'absolute',
+  top:'50%',
+  bottom:'50%',
+  height:'16px',
+  margin:'auto'
 }
 function Trans(props) {
   return <Slide direction="down" {...props} />
@@ -29,20 +46,21 @@ class TopBar extends React.Component {
     name:'',
     pwd:'',
     messageOpen:false,
-    user:{}
+    user:{},
+    open:false
   }
   componentDidMount () {
     // 获取已登录的用户
     this.props.getLoginUser()
   }
   componentWillReceiveProps (nextProps, nextState) {
-    if (nextProps.user !== this.props.user && nextProps.user.hasOwnProperty('name')) {
+    if (nextProps.user !== this.props.user) {
       this.setState({ ...this.state, user:{ ...nextProps.user } })
     }
   }
   render () {
     const user = this.state.user
-    const { showLoginPop, hideLoginPop, popShow } = this.props
+    const { showLoginPop, hideLoginPop, popShow, logout } = this.props
     return <div className="topbar">
       {/*<a target="_blank" href="https://github.com/YouthInXn/MyWebProject/tree/master/MyBlog">*/}
       {/*<Tooltip title="源码">*/}
@@ -55,6 +73,13 @@ class TopBar extends React.Component {
         ? <div>
           <Tooltip title={user.name}>
             <Chip
+              deleteIcon={
+                <div style={{ marginRight:'0px' }}>
+                  <div style={dividerStyle}/>
+                  <Button style={logoutStyle}>登出</Button>
+                </div>
+              }
+              onDelete={this.handleLogout}
               avatar={<Avatar style={avatarStyle}>{user.name.trim().substr(0, 1).toUpperCase()}</Avatar>}
               label={user.name}
             />
@@ -120,6 +145,13 @@ class TopBar extends React.Component {
         </DialogActions>
       </Dialog>
     </div>
+  }
+  handleLogout = () => {
+    customAxios.post(`${userUrl}/logout`).then(res => {
+      if (res.data.isSuccess) {
+        this.props.getLoginUser()
+      }
+    })
   }
   handleLogin = () => {
     const { name, pwd, hasAccount } = this.state

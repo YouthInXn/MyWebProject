@@ -71,7 +71,7 @@ class MessageServices {
     const msg = new Message({ ...ctx.request.body, time: Date.now() })
     const result = await msg.save()
     if (result) {
-      ctx.body = { isSuccess:true, message:'留言成功！' }
+      ctx.body = { isSuccess:true, message:'留言成功！', data:result }
     } else {
       ctx.body = { isSuccess:false, message:'留言失败！' }
     }
@@ -131,6 +131,10 @@ class MessageServices {
    * */
   static async commentsMessage (ctx) {
     const { messageId, userId, content } = ctx.request.body
+    if (!messageId || !userId || !content) {
+      ctx.body = { isSuccess:false, message:'参数错误！' }
+      return
+    }
     if (messageId.length !== 24 || userId.length !== 24) {
       ctx.body = { isSuccess:false, message:'ID不合法！' }
       return
@@ -153,9 +157,9 @@ class MessageServices {
     !matchedMsg.comments && matchedMsg.set('comments', [])
     matchedMsg.comments.push(r._id)
     await matchedMsg.save()
-    let result = await Message.find({ _id:matchedMsg._id })
-    if (result.length) {
-      ctx.body = { isSuccess:true, message:'评论成功！', data:result[0] }
+    // let result = await Message.find({ _id:matchedMsg._id })
+    if (r) {
+      ctx.body = { isSuccess:true, message:'评论成功！', data:r }
     } else {
       ctx.body = { isSuccess:false, message:'评论失败！', data:{} }
     }
@@ -191,7 +195,7 @@ class MessageServices {
     // 评论中添加回复
     comment.replies.push(r._id)
     const c = await comment.save()
-    // 填充评论的数据
+    // 填充回复的数据
     const data = await r.populate({ path:'replier', select:'_id name' }).execPopulate()
     if (c && r) { ctx.body = { isSuccess:true, message:'回复成功！', data } }
     else { ctx.body = { isSuccess:false, message:'回复失败！' } }

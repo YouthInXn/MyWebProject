@@ -36,6 +36,10 @@ CommentSchema.pre('find', function (next) {
       .populate({ path:'replies' })
   next()
 })
+// 每次保存评论之后都填充用户
+CommentSchema.post('save', async function (doc) {
+  await doc.populate({ path:'commenter', select:'_id name' }).execPopulate()
+})
 
 module.exports.CommentSchema = CommentSchema
 module.exports.CommentModel =  Mongoose.model('Comment', CommentSchema)

@@ -6,6 +6,7 @@ const UserServices = require('../service/UserServices')
 const UserRoutes = (router) => {
   router
         .post('/users/login', UserServices.login) // 用户登录
+        .post('/users/logout', UserServices.logout) // 用户登出
         .get('/users/login', UserServices.getLoginUser) // 获取用户登录状态
         .post('/users/author/likes', UserServices.likesAuthor)  // 喜欢作者
         .get('/users/author', UserServices.getAuthorInfo) // 获取作者信息

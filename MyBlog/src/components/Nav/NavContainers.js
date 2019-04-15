@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { login, register, getLoginUser, showLoginPop, hideLoginPop } from '../../redux/user'
+import { login, register, getLoginUser, showLoginPop, hideLoginPop } from '../../redux/globalUser'
 import Nav from './Nav'
 
-const mapStateToProps = ({ user: { current, popShow } }) => {
+const mapStateToProps = ({ currentUser: { current, popShow } }) => {
   return {
     user:current,
     popShow

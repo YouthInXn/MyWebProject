@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { contactAuthor } from '../actions/aboutMeActions'
 import AboutMe from '../components/AboutMe'
 
-const mapStateToProps = ({ author: { aboutMe: { contact } }, user: { current } }) => {
+const mapStateToProps = ({ author: { aboutMe: { contact } }, currentUser: { current } }) => {
   return {
     contact,
     user:current

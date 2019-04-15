@@ -1,6 +1,6 @@
 import Progress from './Progress'
 import { connect } from 'react-redux'
-import { NOTICE_MESSAGE_CLOSE } from './constant.js'
+import { NOTICE_MESSAGE_CLOSE } from '../../components/Progress/constants'
 
 
 const mapStateToProps = ({ progress:{ loading, message, open } }) => {

@@ -30,6 +30,12 @@ MessageSchema.pre('find', function (next) {
       .populate({ path:'comments' })
   next()
 })
+// doc中间件
+MessageSchema.post('save', async function (docs) {
+  await docs.populate({ path:'user', select:'_id name' })
+        .populate({ path:'comments' })
+        .execPopulate()
+})
 
 
 module.exports.MessageSchema = MessageSchema

@@ -14,15 +14,15 @@ import Message from './MessageBoard/containers/messageContainer'
 const createRoutes = () => {
   return <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/author/aboutme" render={() => {
-      return <Author><AboutMe /></Author>
-    }} />
-    <Route path="/author/message" render={() => {
-      return <Author><Message /></Author>
-    }} />
-    <Route path="/author/share" render={() => {
-      return <Author><h1>作者分享</h1></Author>
-    }} />
+    <Route path="/author/aboutme">
+      <Author><AboutMe /></Author>
+    </Route>
+    <Route path="/author/message">
+      <Author><Message /></Author>
+    </Route>
+    <Route path="/author/share">
+      <Author><h1>作者分享</h1></Author>
+    </Route>
     <Route path="/posts" component={Post} />
     <Route path="/learn" component={Learn} />
     <Route component={NotFound} />
