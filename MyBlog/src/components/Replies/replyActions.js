@@ -4,9 +4,9 @@ import {
   LOST_DATA,
   RECEIVED_DATA,
   RECEIVED_DATA_NOTICE
-} from '../../redux/constants/constants'
+} from '../../redux/constants/index'
 import { messageUrl } from '../../urlConfig'
-import { normalizrReplies } from '../../redux/Normalizrs/normalizrMsgs'
+import { normalizrReplies } from '../../redux/Normalizrs/normalizrData'
 
 
 export const commitReply = (param) => {

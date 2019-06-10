@@ -3,10 +3,10 @@ import {
   RECEIVED_DATA_NOTICE,
   RECEIVED_DATA,
   LOST_DATA
-} from '../../redux/constants/constants'
+} from '../../redux/constants/index'
 import { messageUrl } from '../../urlConfig'
-import { ADD_COMMENT } from '../../redux/constants/constants'
-import { normalizrComments } from '../../redux/Normalizrs/normalizrMsgs'
+import { ADD_COMMENT } from '../../redux/constants/index'
+import { normalizrComments } from '../../redux/Normalizrs/normalizrData'
 // 添加评论
 export const commitComment = (param) => {
   return {

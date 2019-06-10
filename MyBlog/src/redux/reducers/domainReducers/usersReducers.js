@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import {ADD_MESSAGE, ADD_COMMENT, GET_ALL_MESSAGE} from '../../constants/constants'
+import {ADD_MESSAGE, ADD_COMMENT, GET_ALL_MESSAGE} from '../../constants/index'
 /**
  * 数据中的用户信息
  * */

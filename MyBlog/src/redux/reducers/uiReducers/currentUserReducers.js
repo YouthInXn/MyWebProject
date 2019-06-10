@@ -1,5 +1,5 @@
 // reducer
-import {LOGIN_POP_TOGGLE, USER_LOGIN, USER_REGISTER} from '../../constants/constants'
+import {LOGIN_POP_TOGGLE, USER_LOGIN, USER_REGISTER} from '../../constants/index'
 
 const initState = { current: {}, popShow: false }
 

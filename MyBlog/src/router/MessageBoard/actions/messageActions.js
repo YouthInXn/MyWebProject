@@ -3,14 +3,12 @@ import {
   RECEIVED_DATA,
   RECEIVED_DATA_NOTICE,
   LOST_DATA, ADD_MESSAGE,
-} from '../../../redux/constants/constants'
-import { messageUrl } from '../../../urlConfig'
-import {
   GET_ALL_MESSAGE, LIKE_MESSAGE,
   LIKE_MESSAGE_SUCCESS,
   REPLY_COMMENTS
-} from '../../../redux/constants/constants'
-import { normalizrMsg, normalizrMsgs } from '../../../redux/Normalizrs/normalizrMsgs'
+} from '../../../redux/constants/index'
+import { messageUrl } from '../../../urlConfig'
+import { normalizrMsg, normalizrData } from '../../../redux/Normalizrs/normalizrData'
 
 // 获取所有留言
 export const getAllMessage = () => {
@@ -18,7 +16,7 @@ export const getAllMessage = () => {
     types:[ LOADING_DATA, RECEIVED_DATA, LOST_DATA ],
     promise: (axios) => axios.get(`${messageUrl}`),
     success: (dispatch, getState, result) => {
-      const data = normalizrMsgs(result.data)
+      const data = normalizrData(result.data)
       dispatch({ type:GET_ALL_MESSAGE, msgs:data })
     }
   }

@@ -1,9 +1,9 @@
 import React from 'react'
-import {Divider, Fab, Grid, TextField, Tooltip} from '@material-ui/core'
+import { Divider, Fab, Grid, TextField, Tooltip } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { AccountCircleOutlined, Forum, MailOutline } from '@material-ui/icons'
 import SendButton from './SendButton'
-import {scrollToSlowly} from "../../../../util/commonFunc";
+import { scrollToSlowly } from '../../../../util/commonFunc'
 
 const gridContainer = { width:'470px', margin:'0px auto' }
 

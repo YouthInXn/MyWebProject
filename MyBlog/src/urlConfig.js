@@ -10,4 +10,5 @@ export const rootUrl = `${protocol}//${host}`
 export const userUrl = `${rootUrl}/users`
 // message
 export const messageUrl = `${rootUrl}/message`
-
+// share
+export const shareUrl = `${rootUrl}/share`

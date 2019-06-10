@@ -3,10 +3,10 @@ import {
   USER_LOGIN,
   USER_REGISTER,
   LOGIN_POP_TOGGLE
-} from './constants/constants'
+} from './constants/index'
 import {
   LOADING_DATA, RECEIVED_DATA, LOST_DATA, RECEIVED_DATA_NOTICE
-} from './constants/constants'
+} from './constants/index'
 
 // 用户登录
 export const login = (user) => {

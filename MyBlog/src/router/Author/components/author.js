@@ -19,7 +19,6 @@ const styles = theme => ({
     top:30,
     right:-80,
     width:'100px',
-    height:'400px',
     float: 'right'
   },
   fabButton: {

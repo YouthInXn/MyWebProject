@@ -1,0 +1,32 @@
+
+// user
+export const USER_LOGIN = 'USER_LOGIN'
+export const USER_REGISTER = 'USER_REGISTER'
+export const LOGIN_POP_TOGGLE = 'LOGIN_POP_TOGGLE'
+// comments
+export const ADD_COMMENT = 'ADD_COMMENT'
+// reply
+export const ADD_REPLY = 'ADD_REPLY'
+// message
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+export const GET_ALL_MESSAGE = 'GET_ALL_MESSAGE'
+export const LIKE_MESSAGE = 'LIKE_MESSAGE'
+export const LIKE_MESSAGE_SUCCESS = 'LIKE_MESSAGE_SUCCESS'
+export const REPLY_COMMENTS = 'REPLY_COMMENTS'
+
+// aboutme
+export const AUTHOR_CONTACT_SUCCESS = 'AUTHOR_CONTACT_SUCCESS'
+export const AUTHOR_CONTACT_FAILURE = 'AUTHOR_CONTACT_FAILURE'
+export const GET_AUTHOR_INFO = 'GET_AUTHOR_INFO'
+
+// share
+export const GET_SHARE_LIST = 'GET_SHARE_LIST'
+export const GET_SHARE_LIST_SUCCESS = 'GET_SHARE_LIST_SUCCESS'
+export const GET_SHARE_LIST_FAILURE = 'GET_SHARE_LIST_FAILURE'
+export const SHOW_SHARE_LIST = 'SHOW_SHARE_LIST'
+
+// xhr
+export const LOADING_DATA = 'LOADING_DATA'
+export const RECEIVED_DATA = 'RECEIVED_DATA'
+export const RECEIVED_DATA_NOTICE = 'RECEIVED_DATA_NOTICE'
+export const LOST_DATA = 'LOST_DATA'

@@ -1,6 +1,10 @@
 
-import { AUTHOR_CONTACT_SUCCESS, AUTHOR_CONTACT_FAILURE } from '../../../router/AboutMe/actions/aboutMeActions'
-import { GET_AUTHOR_INFO } from '../../../router/Author/authorActionCreators'
+import {
+  AUTHOR_CONTACT_SUCCESS,
+  AUTHOR_CONTACT_FAILURE,
+  GET_AUTHOR_INFO
+} from '../../constants/index'
+import { createSliceReducer } from '../reducerUtils'
 const initState = {
   contact:{
     isSuccess:false,
@@ -24,7 +28,4 @@ const ACTION_HANDLE = {
   }
 }
 
-export default function (state = initState, action) {
-  let sliceReducer = ACTION_HANDLE[action.type]
-  return sliceReducer ? sliceReducer(state, action) : state
-}
+export default createSliceReducer(initState, ACTION_HANDLE)

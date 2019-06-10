@@ -1,8 +1,8 @@
 import { messageUrl } from '../../../urlConfig'
-
-
-export const AUTHOR_CONTACT_SUCCESS = 'AUTHOR_CONTACT_SUCCESS'
-export const AUTHOR_CONTACT_FAILURE = 'AUTHOR_CONTACT_FAILURE'
+import {
+  AUTHOR_CONTACT_FAILURE,
+  AUTHOR_CONTACT_SUCCESS
+} from '../../../redux/constants/index'
 
 /**
  * 联系作者

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import {ADD_MESSAGE, ADD_COMMENT, LIKE_MESSAGE_SUCCESS} from '../../constants/constants'
-import { GET_ALL_MESSAGE } from '../../constants/constants'
+import {ADD_MESSAGE, ADD_COMMENT, LIKE_MESSAGE_SUCCESS} from '../../constants/index'
+import { GET_ALL_MESSAGE } from '../../constants/index'
 /**
  * 留言的Reducer
  * */

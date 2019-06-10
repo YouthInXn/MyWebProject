@@ -1,0 +1,13 @@
+.w-e-toolbar {
+  width:100%;
+}
+.w-e-text {
+  overflow-y: auto;
+}
+.my-wangeditor {
+
+}
+.my-wangeditor-disabled {
+  pointer-events: none ;
+  opacity: 0.4;
+}

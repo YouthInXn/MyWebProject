@@ -1,8 +1,7 @@
 import React from 'react'
-import { LinearProgress, Snackbar, IconButton } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
+import { LinearProgress } from '@material-ui/core'
 /**
- * 全局进度条+消息条组件
+ * 全局进度条
  * */
 const loadingStyle = {
   float: 'left',
@@ -22,23 +21,11 @@ const hideStyle = {
 
 class Progress extends React.Component {
   render () {
-    const { message, loading, open, closeMessage } = this.props
+    const { loading } = this.props
     return <div>
       <div style={loading ? loadingStyle : hideStyle}>
         <LinearProgress  />
       </div>
-      <Snackbar
-        open={open}
-        onClose={closeMessage}
-        autoHideDuration={2000}
-        message={<span>{message}</span>}
-        anchorOrigin={{ vertical:'bottom', horizontal:'right' }}
-        action={[
-          <IconButton color="secondary" key="close" aria-label="Close" onClick={closeMessage}>
-            <CloseIcon/>
-          </IconButton>
-        ]}
-      />
     </div>
   }
 }

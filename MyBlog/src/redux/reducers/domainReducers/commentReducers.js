@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_COMMENT, ADD_REPLY, GET_ALL_MESSAGE } from '../../constants/constants'
+import { ADD_COMMENT, ADD_REPLY, GET_ALL_MESSAGE } from '../../constants/index'
 /**
  * 评论Reducer
  * */

@@ -3,10 +3,10 @@ import {
   RECEIVED_DATA,
   LOST_DATA,
   RECEIVED_DATA_NOTICE,
-} from '../../redux/constants/constants'
+  GET_AUTHOR_INFO
+} from '../../redux/constants/index'
 import { userUrl } from '../../urlConfig'
 
-export const GET_AUTHOR_INFO = 'GET_AUTHOR_INFO'
 // const LIKE_AUTHOR = 'LIKE_AUTHOR'
 
 // 获取作者信息

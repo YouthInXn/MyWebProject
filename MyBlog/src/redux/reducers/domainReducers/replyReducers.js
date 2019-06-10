@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import {ADD_REPLY, GET_ALL_MESSAGE} from '../../constants/constants'
+import {ADD_REPLY, GET_ALL_MESSAGE} from '../../constants/index'
 
 const REPLY_BYID_HANDLER = {
   [ADD_REPLY]: (state, action) => {

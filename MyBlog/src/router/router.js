@@ -7,6 +7,7 @@ import Post from './Posts/index'
 import Learn from './Learn/index'
 import AboutMe from './AboutMe/containers/aboutMeContainers'
 import Message from './MessageBoard/containers/messageContainer'
+import AuthorShare from './AuthorShare'
 
 /*
 * Switch组件会从上向下依次匹配路由，放在最后的则是404
@@ -21,7 +22,7 @@ const createRoutes = () => {
       <Author><Message /></Author>
     </Route>
     <Route path="/author/share">
-      <Author><h1>作者分享</h1></Author>
+      <Author><AuthorShare/></Author>
     </Route>
     <Route path="/posts" component={Post} />
     <Route path="/learn" component={Learn} />

@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 import { NOTICE_MESSAGE_CLOSE } from '../../components/Progress/constants'
 
 
-const mapStateToProps = ({ progress:{ loading, message, open } }) => {
+const mapStateToProps = ({ progress:{ loading } }) => {
   return {
-    loading,
-    message,
-    open
+    loading
   }
 }
 const mapDispatchToProps = (dispatch) => {
