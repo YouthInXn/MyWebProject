@@ -40,7 +40,7 @@
   "dependencies": {
     "@material-ui/core": "3.8.3",
     "@material-ui/icons": "3.0.2",
-    "axios": "0.18.0",
+    "axios": "0.21.1",
     "lodash": "^4.17.11",
     "normalizr": "^3.3.0",
     "react": "16.6.0",
